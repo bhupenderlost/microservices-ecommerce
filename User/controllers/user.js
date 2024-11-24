@@ -77,7 +77,6 @@ exports.getProfile = async (req, res) => {
         })
 
     }catch(err) {
-        console.log(err)
         return res.status(400).json({
             error: true,
             message: "An Unexpected Error Occurrred",

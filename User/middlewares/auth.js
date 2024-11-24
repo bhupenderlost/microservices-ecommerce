@@ -21,7 +21,6 @@ exports.checkJwt = expressjwt({
     algorithms: ['RS256'] //Algorithm For JWT Token ( RS256 Currently )
 })
 
-
 exports.checkAuthentication = async (req, res, next) => {
     //Check if user exists
     let user = await getUserBy_id(req.auth._id)

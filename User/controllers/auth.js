@@ -33,12 +33,6 @@ exports.signUp = async (req, res) => {
             password
         } = req.body
 
-        // if(password.length < 6) 
-        //     return res.status(400).json({
-        //         error: true,
-        //         message: "Password length must be equal or greater then 6"
-        //     })
-
         const salt = crypto.randomUUID()
 
         const encpy_password = await hashPassword(password, salt)
@@ -58,7 +52,7 @@ exports.signUp = async (req, res) => {
             {
                 _id: response._id, //User ID
                 user: {
-                    email: response.emailAddress, //Firebase UID
+                    email: response.emailAddress, 
                     firstName: response.firstName, //User firstName
                     role: response.role
                 }
@@ -86,6 +80,7 @@ exports.signUp = async (req, res) => {
         res.status(201).json({
             success: true,
             message: 'User Created Successfully!',
+            token:token,
             dbRes: response
         })
         
@@ -132,7 +127,7 @@ exports.signIn = async (req, res) => {
             {
                 _id: response._id, //User ID
                 user: {
-                    email: response.emailAddress, //Firebase UID
+                    email: response.emailAddress, 
                     firstName: response.firstName, //User firstName
                     role: response.role
                 }
@@ -180,7 +175,7 @@ exports.signIn = async (req, res) => {
 exports.loggout = async (req, res) => {
     try {
         //Clear The Cookie 
-        res.clearCookie('auth', { path: '/', domain: 'localhost', expires: new Date(1) })
+        res.clearCookie('auth', { path: '/', domain: process.env.DOMAIN, expires: new Date(1) })
         //Give Success Status 
         res.status(200).json({
             logout: true,
