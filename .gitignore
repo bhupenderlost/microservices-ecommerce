@@ -1,3 +1,4 @@
 node_modules/*
 keys/*
-*/.env
+User/.env
+Product/.env
