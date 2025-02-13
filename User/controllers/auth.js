@@ -8,7 +8,6 @@ const PRIVATE_KEY = fs.readFileSync(
     path.join(
         __dirname,
         '..',
-        '..',
         'keys',
         'private.pem'
     )

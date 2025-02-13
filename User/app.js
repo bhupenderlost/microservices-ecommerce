@@ -33,8 +33,8 @@ app.use(express.json())
 
 
 //Routes
-app.use('/auth', authRoutes)
-app.use('/user', checkJwt, checkAuthentication, userRoutes)
+app.use('/userservice/auth', authRoutes)
+app.use('/userservice/user', checkJwt, checkAuthentication, userRoutes)
 
 
 //Middleware Custom Response

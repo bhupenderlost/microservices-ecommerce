@@ -7,7 +7,6 @@ const PUBLICKEY = fs.readFileSync(
     path.join(
         __dirname,
         '..',
-        '..',
         'keys',
         'public.pem'
     )

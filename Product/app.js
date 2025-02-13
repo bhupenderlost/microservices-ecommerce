@@ -35,8 +35,8 @@ app.use(express.json())
 
 
 //Routes
-app.use('/category', categoryRoutes)
-app.use('/product', productRoutes)
+app.use('/productservice/category', categoryRoutes)
+app.use('/productservice/product', productRoutes)
 
 
 //Middleware Custom Response

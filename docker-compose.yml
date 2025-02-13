@@ -1,0 +1,35 @@
+
+services:
+  user:
+    build: ./User
+    container_name: user_service
+    ports:
+      - "8000:8000"
+    networks:
+      - microservices
+
+  product:
+    build: ./Product
+    container_name: product_service
+    ports:
+      - "9000:9000"
+    networks:
+      - microservices
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Frontend:/usr/share/nginx/html:ro
+
+    depends_on:
+      - user
+      - product
+    networks:
+      - microservices
+
+networks:
+  microservices:
