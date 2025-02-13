@@ -24,7 +24,7 @@ A simple microservices  based ecoomerce applicaiton.
 ```
 - Run the following command for running services.
 ```bash
-    docker-compsoe up -d
+    docker-compose up -d
 ```
 
 
